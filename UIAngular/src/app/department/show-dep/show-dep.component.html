@@ -1,0 +1,23 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" (click)="addClick()">
+    Add Department
+</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>DepartmentId</th>
+            <th>DepartmentName</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of DepList">
+            <td>{{item.DepartmentId}}</td>
+            <td>{{item.DepartmentName}}</td>
+            <td>
+                <a class="btn btn-light btn-outline-primary m-2" (click)="updClick(item)">Edit</a>
+                <a class="btn btn-light btn-outline-danger" (click)="delClick(item)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

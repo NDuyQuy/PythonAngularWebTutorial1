@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{Tittle}}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+</div>
+
+<form class="form">
+    <div class="modal-body">
+        <div *ngIf="Mode==3">
+            <p class="text-danger">Do you sure want to delete {{Emp.EmployeeName}} employee</p>
+        </div>
+        <div *ngIf="Mode!=3">
+            <div class="form-group" *ngIf="Mode==1">
+                <label for="id">EmployeeId: </label>
+                <input id="id" type="number" formControlName="EmployeeId" class="form-control"  readonly>
+            </div>
+            <div class="form-group">
+                <label for="name">EmployeeName: </label>
+                <input id="name" type="text" formControlName="EmployeeName" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="name">Department: </label>
+                <input id="name" type="text" formControlName="Department" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="name">DateOfJoin: </label>
+                <input id="name" type="date" formControlName="Department" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="name">Img: </label>
+                <input id="name" type="file" accept="image/*" formControlName="Department" class="form-control" >
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="SaveChange()" >Save changes</button>
+    </div>            
+</form>

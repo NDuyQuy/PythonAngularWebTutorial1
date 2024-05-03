@@ -1,0 +1,41 @@
+
+<div class="d-flex justify-content-between align-items-center">
+    <button type="button" class="btn btn-primary float-right m-2" (click)="addClick()">
+        Add Employee
+    </button>
+    
+    <div class="drop-down menu">
+        <select (change)="changeSort($event)">
+            <option value="0">Sort By Id</option>
+            <option value="1">Sort By Name</option>
+            <option value="2">Sort By Department</option>
+            <option value="3">Sort By DateOfJoin</option>
+        </select>
+    </div>
+   
+</div>
+<table class="table table-striped border">
+    <thead>
+        <tr>
+            <th>EmployeeImg</th>
+            <th>EmployeeId</th>
+            <th>EmployeeName</th>
+            <th>Department</th>
+            <th>DateOfJoin</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of empList">
+            <td><img [src]="baseImgUrl+item.Img" style="width: 80px;height: auto;"></td>
+            <td>{{item.EmployeeId}}</td>
+            <td>{{item.EmployeeName}}</td>
+            <td>{{item.Department}}</td>
+            <td>{{item.DateOfJoin}}</td>
+            <td>
+                <a class="btn btn-light btn-outline-primary m-2" (click)="updClick(item)">Edit</a>
+                <a class="btn btn-light btn-outline-danger" (click)="delClick(item)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

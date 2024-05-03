@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{ModalTitle}}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
+</div>
+
+<form [formGroup]="addOrUpdateForm" class="form">
+    <div class="modal-body">
+        <div *ngIf="isDelete">
+            <p class="text-danger">Do you sure want to delete {{dep.DepartmentName}} department</p>
+        </div>
+        <div *ngIf="!isDelete">
+            <div class="form-group" *ngIf="!InsertOrUpdate">
+                <label for="id">DepartmentId: </label>
+                <input id="id" type="number" formControlName="DepartmentId" class="form-control"     readonly>
+            </div>
+            <div class="form-group">
+                <label for="name">DepartmentName: </label>
+                <input id="name" type="text" formControlName="DepartmentName" class="form-control" >
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeClick()">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="saveChange()" >Save changes</button>
+    </div>            
+</form>

@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{Tittle}}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+</div>
+
+<form [formGroup]="form" class="form" (ngSubmit)="SaveChange()">
+    <div class="modal-body">
+        <div *ngIf="Mode==3">
+            <p class="text-danger">Do you sure want to delete {{Emp.EmployeeName}} employee?</p>
+        </div>
+        <div *ngIf="Mode!=3">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <div class="form-group" *ngIf="Mode==2">
+                        <label for="id">EmployeeId: </label>
+                        <input id="id" type="number" formControlName="EmployeeId" 
+                        class="form-control" value="0" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">EmployeeName: </label>
+                        <input id="name" type="text" formControlName="EmployeeName" 
+                        class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="dep">Department: </label>
+                        <select id="dep" class="form-control" formControlName="Department">
+                            <option *ngFor="let item of depList" [ngValue]="item.DepartmentName">
+                                {{ item.DepartmentName }}
+                            </option>
+                        </select>
+                    </div>                    
+                    <div class="form-group">
+                        <label for="doj">DateOfJoin: </label>
+                        <input id="doj" type="date" formControlName="DateOfJoin" class="form-control" >
+                    </div>
+                </div>
+                <div class="d-flex align-items-end">                    
+                    <div class="form-group" style="width:90%;margin: 0px 10px; padding-top: 10px;">
+                        <input type="hidden" formControlName="Img" value="">
+                        <img class="border" style="height: 140px; width: 100%;" [src]="imageUrl">
+                        <input id="name" type="file" accept="image/*"  
+                        class="form-control" (change)="onFileSelected($event)" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        <button type="submit" class="btn btn-primary" >Save changes</button>
+    </div>            
+</form>

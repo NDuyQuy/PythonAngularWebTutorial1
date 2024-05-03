@@ -1,0 +1,8 @@
+* create new defaut setting no stand alone api angular project:
+ng n <project_name> --default -g(skip git) --no-standalone
+* generate component
+ng g c <component_name>
+* gen child component
+ng g c <parrent_comp>/<child_comp>
+* gen service
+ng g s <service_name>
